@@ -1,0 +1,23 @@
+{
+  "development": {
+    "username": "arpitajain",
+    "password": null,
+    "database": "tinyurl",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  },
+  "test": {
+    "username": "arpitajain",
+    "password": null,
+    "database": "tinyurl",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  },
+  "production": {
+    "username": "arpitajain",
+    "password": null,
+    "database": "tinyurl",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  }
+}
