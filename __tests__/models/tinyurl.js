@@ -1,6 +1,6 @@
 const Models = require('../../models');
 
-describe('', () => {
+describe('testing createObject of model', () => {
   beforeEach((done) => {
     Models.tinyurl.destroy({ truncate: true }).then(() => done());
   });

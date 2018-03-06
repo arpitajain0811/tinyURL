@@ -5,7 +5,7 @@ const server = new Hapi.Server();
 
 server.connection({
   host: 'localhost',
-  port: 7000,
+  port: 7007,
 });
 
 server.route(Routes);

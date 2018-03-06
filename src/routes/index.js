@@ -1,4 +1,5 @@
 const shorten = require('../helpers/shortenToTiny');
+const shorten6 = require('../helpers/shortenTo6');
 
 const route = [
   {
@@ -6,13 +7,11 @@ const route = [
     path: '/shorten',
     handler: (request, reply) => {
       const start = 0;
-      const shortenedUrl = shorten(request.payload.longUrl, start);
-      // console.log(shortenedUrl);
+      const shorturl = shorten6(request.payload.longUrl, start, start + 22);
+      const shortenedUrl = shorten(request.payload.longUrl, shorturl, start);
       shortenedUrl.then((res) => {
-        // console.log(res);
         reply(res);
       });
-      // reply(shortenedUrl);
     },
   },
 ];

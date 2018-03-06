@@ -1,16 +1,16 @@
 const Models = require('../../models');
-const shorten6 = require('./shortenTo6');
 
-const shorten = (longUrl, start) => {
-  if (start >= 30) return null;
-  const shortUrl = shorten6(longUrl, start, start + 6);
-  return Models.tinyurl.createObject(shortUrl, longUrl)
+const shorten = (longUrl, shortUrl, start) => {
+  if (start >= 18) return null;
+  const shortenedUrl = shortUrl.slice(start, start + 6);
+  return Models.tinyurl.createObject(shortenedUrl, longUrl)
     .spread((response, created) => {
       if (!created) {
         if (longUrl === response.dataValues.longurl) {
-          return shortUrl;
+          return response.shorturl;
         }
-        return shorten(longUrl, start + 6);
+        const newStart = start + 6;
+        return shorten(longUrl, shortUrl, newStart);
       }
       return response.shorturl;
     });
