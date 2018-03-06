@@ -1,5 +1,3 @@
-
-
 module.exports = (sequelize, DataTypes) => {
   const tinyurl = sequelize.define('tinyurl', {
     longurl: DataTypes.STRING,
@@ -11,8 +9,13 @@ module.exports = (sequelize, DataTypes) => {
       },
     },
   }, {});
-  tinyurl.associate = function (models) {
-    // associations can be defined here
-  };
+  tinyurl.createObject = (shortUrl, longUrl) => tinyurl.findOrCreate({
+    where: {
+      shorturl: shortUrl,
+    },
+    defaults: {
+      longurl: longUrl,
+    },
+  });
   return tinyurl;
 };
