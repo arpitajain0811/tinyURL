@@ -1,5 +1,5 @@
 
-const short6 = require('../src/helpers/shorten');
+const short6 = require('../src/helpers/shortenTo6');
 
 const shorten = () => {
   const urls = {};
