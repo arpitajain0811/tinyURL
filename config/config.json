@@ -4,7 +4,11 @@
     "password": null,
     "database": "tinyurl",
     "host": "127.0.0.1",
-    "dialect": "postgres"
+    "dialect": "postgres",
+    "pool":{
+      "min":5,
+      "max":10 
+    }
   },
   "test": {
     "username": "arpitajain",
@@ -20,4 +24,5 @@
     "host": "127.0.0.1",
     "dialect": "postgres"
   }
+ 
 }
