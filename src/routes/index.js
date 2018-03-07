@@ -1,18 +1,5 @@
-const shorten = require('../helpers/shortenToTiny');
-const shorten6 = require('../helpers/shortenTo6');
+const shorten = require('./shorten');
+const longUrl = require('./getLongUrl');
+const ping = require('./ping');
 
-const route = [
-  {
-    method: 'PUT',
-    path: '/shorten',
-    handler: (request, reply) => {
-      const start = 0;
-      const shorturl = shorten6(request.payload.longUrl, start, start + 22);
-      const shortenedUrl = shorten(request.payload.longUrl, shorturl, start);
-      shortenedUrl.then((res) => {
-        reply(res);
-      });
-    },
-  },
-];
-module.exports = route;
+module.exports = [].concat(shorten, longUrl, ping);
