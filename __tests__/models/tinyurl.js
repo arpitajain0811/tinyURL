@@ -4,6 +4,9 @@ describe('testing createObject of model', () => {
   beforeEach((done) => {
     Models.tinyurl.destroy({ truncate: true }).then(() => done());
   });
+  afterEach((done) => {
+    Models.tinyurl.destroy({ truncate: true }).then(() => done());
+  });
   it('creates new entry in db if short url does not exsists', (done) => {
     Models.tinyurl.createObject('abc123', 'http://mylongurl123.com')
       .spread((createdObject, created) => {
