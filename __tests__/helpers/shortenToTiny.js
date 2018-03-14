@@ -10,19 +10,10 @@ describe('checking functions which shortens the url and inserts in db', () => {
     const longUrl2 = 'http://myLongUrl2';
     const shortUrl = 'qwertyuioplkjhgfdsazxc';
     console.log('testing with the first one');
-    shorten(longUrl1, shortUrl, 0).then((firstObject) => {
-      Models.tinyurl.findAll().then(result => console.log(result)).then(() => {
-        console.log('first one created', firstObject);
-        shorten(longUrl2, shortUrl, 0).then((res) => {
-          console.log('second one created', res);
-          Models.tinyurl.findAll().then((allObject) => {
-            console.log('allObject', allObject);
-            console.log('res', res);
-            expect(res).toEqual('uioplk');
-            console.log('the end');
-            done();
-          });
-        });
+    shorten(longUrl1, shortUrl, 0).then(() => {
+      shorten(longUrl2, shortUrl, 0).then((res) => {
+        expect(res).toEqual('uioplk');
+        done();
       });
     });
   });
