@@ -14,9 +14,12 @@ describe('checking functions which shortens the url and inserts in db', () => {
       console.log('first one created', firstObject);
       shorten(longUrl2, shortUrl, 0).then((res) => {
         console.log('second one created', res);
-        expect(res).toEqual('uioplk');
-        console.log('the end');
-        done();
+        Models.tinyurl.findAll().then((allObject) => {
+          console.log(allObject);
+          expect(res).toEqual('uioplk');
+          console.log('the end');
+          done();
+        });
       });
     });
   });
