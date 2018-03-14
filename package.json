@@ -6,7 +6,7 @@
   "scripts": {
     "test": "NODE_ENV=test node_modules/.bin/sequelize db:migrate:undo:all && NODE_ENV=test node_modules/.bin/sequelize db:migrate && jest --runInBand --coverage --notify",
     "start": "node_modules/.bin/sequelize db:migrate && nodemon src/server.js",
-    "circleciTest": "npm run lint && NODE_ENV=circleci_test sequelize db:migrate && jest" 
+    "circleciTest": "NODE_ENV=circleci_test sequelize db:migrate && jest" 
   },
   "author": "",
   "license": "ISC",
