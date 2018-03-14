@@ -12,6 +12,7 @@ const shorten = (longUrl, shortUrl, start) => {
         const newStart = start + 6;
         return shorten(longUrl, shortUrl, newStart);
       }
+      console.log('New value created');
       return response.shorturl;
     });
 };

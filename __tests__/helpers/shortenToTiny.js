@@ -9,9 +9,13 @@ describe('checking functions which shortens the url and inserts in db', () => {
     const longUrl1 = 'http://myLongUrl1';
     const longUrl2 = 'http://myLongUrl2';
     const shortUrl = 'qwertyuioplkjhgfdsazxc';
+    console.log('testing with the first one');
     shorten(longUrl1, shortUrl, 0).then(() => {
+      console.log('first one created');
       shorten(longUrl2, shortUrl, 0).then((res) => {
+        console.log('second one created');
         expect(res).toEqual('uioplk');
+        console.log('the end');
         done();
       });
     });
